@@ -1,0 +1,2 @@
+# agri_system
+融合病虫害检测算法的农业专家系统的设计分为模型端、Android客户端和服务端设计工作。模型端以YOLOv7作为基线网络，Android客户端中App页面以原生Android渲染为主，通过Activity进行相关请求的响应处理。Android客户端采用OKHttp协议与服务端建立通信
