@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxt.Auser.mapper.CollectMapper" >
+  <resultMap id="BaseResultMap" type="com.sxt.Auser.domain.Collect" >
+    <id column="collectid" property="collectid" jdbcType="INTEGER" />
+    <result column="informationid" property="informationid" jdbcType="INTEGER" />
+    <result column="unname" property="unname" jdbcType="CHAR" />
+  </resultMap>
+  
+  <!-- 定义一个新的resultMap拓展上面的information信息 -->
+    <resultMap id="UpdateResultMap" type="com.sxt.Auser.vo.CollectVo" >
+    	<!-- 对集合数据进行解析 -->
+    	<id column="collectid" property="collectid" jdbcType="INTEGER" />
+    	<result column="informationid" property="informationid" jdbcType="INTEGER" />
+    	<result column="unname" property="unname" jdbcType="CHAR" />
+    <collection property="informations" ofType="com.sxt.sys.domain.Information">
+     	<id column="id" property="id" jdbcType="INTEGER" />
+   		<result column="eno" property="eno" jdbcType="CHAR" />
+    	<result column="province" property="province" jdbcType="CHAR" />
+    	<result column="city" property="city" jdbcType="CHAR" />
+    	<result column="district" property="district" jdbcType="CHAR" />
+    	<result column="area" property="area" jdbcType="CHAR" />
+   		<result column="content" property="content" jdbcType="VARCHAR" />
+    	<result column="disable" property="disable" jdbcType="INTEGER" />
+    	<result column="title" property="title" jdbcType="VARCHAR" />
+    	<result column="wentiphoto" property="wentiphoto" jdbcType="VARCHAR" />
+    	<result column="role_id" property="roleId" jdbcType="INTEGER" />
+    	<result column="date" property="date" jdbcType="VARCHAR" />
+    	<result column="like_num" property="likeNum" jdbcType="INTEGER" />
+    	<result column="collect_num" property="collectNum" jdbcType="INTEGER" />
+    </collection>
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    collectid, informationid, unname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from collect
+    where collectid = #{collectid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from collect
+    where collectid = #{collectid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sxt.Auser.domain.Collect" >
+    insert into collect (collectid, informationid, unname
+      )
+    values (#{collectid,jdbcType=INTEGER}, #{informationid,jdbcType=INTEGER}, #{unname,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxt.Auser.domain.Collect" >
+    insert into collect
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="collectid != null" >
+        collectid,
+      </if>
+      <if test="informationid != null" >
+        informationid,
+      </if>
+      <if test="unname != null" >
+        unname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="collectid != null" >
+        #{collectid,jdbcType=INTEGER},
+      </if>
+      <if test="informationid != null" >
+        #{informationid,jdbcType=INTEGER},
+      </if>
+      <if test="unname != null" >
+        #{unname,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxt.Auser.domain.Collect" >
+    update collect
+    <set >
+      <if test="informationid != null" >
+        informationid = #{informationid,jdbcType=INTEGER},
+      </if>
+      <if test="unname != null" >
+        unname = #{unname,jdbcType=CHAR},
+      </if>
+    </set>
+    where collectid = #{collectid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxt.Auser.domain.Collect" >
+    update collect
+    set informationid = #{informationid,jdbcType=INTEGER},
+      unname = #{unname,jdbcType=CHAR}
+    where collectid = #{collectid,jdbcType=INTEGER}
+  </update>
+  
+  
+  <!-- queryInformationByinforId -->
+    <select id="queryInformationByinforId"  parameterType="java.lang.Integer"  resultType="java.lang.Integer">
+    select collectid  FROM collect WHERE informationid = #{informationid,jdbcType=INTEGER}
+  </select>
+  
+  <!-- addInformation -->
+    <insert id="addInformation" parameterType="com.sxt.Auser.domain.Collect" >
+    insert into collect (informationid, unname)
+    values (#{informationid,jdbcType=INTEGER}, #{unname,jdbcType=CHAR})
+  </insert>
+  <!-- queryCollectNum -->
+   <select id="queryCollectNum"    resultType="java.lang.Integer">
+   SELECT COUNT(DISTINCT collectid) FROM collect WHERE unname =#{unname,jdbcType=CHAR}
+  </select>
+  
+  
+  <!-- queryInformationByCollectId -->
+   <select id="queryInformationByCollectId"  resultMap="UpdateResultMap">
+   select  
+   collect.collectid,collect.informationid,collect.unname,information.id,information.eno,information.province,
+information.city,information.district,information.area,information.content,information.`disable`,information.title,information.wentiphoto,
+information.role_id,information.date,information.like_num,information.collect_num
+   from collect,information 
+   WHERE collect.informationid = information.id 
+   and collect.unname=#{unname,jdbcType=CHAR}
+  </select>
+  
+</mapper>

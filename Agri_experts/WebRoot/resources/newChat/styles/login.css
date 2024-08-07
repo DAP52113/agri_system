@@ -1,0 +1,99 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+position: relative;
+}
+.background-image{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: url("../images/1.jpg") no-repeat center;
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
+#content{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.login-content{
+    width: 430px;
+    height: 330px;
+    border-radius: 1px;
+    border: 0px solid transparent;
+    background: white;
+}
+.login-head-img{
+    width: 100%;
+    height: 150px;
+    background: url("../images/3.jpg") no-repeat center;
+    background-size: 100% 100%;
+    text-align: center;
+    line-height: 150px;
+}
+.login-head-img span{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    font-size: 25px;
+    color: white;
+
+}
+input{
+    width: 300px;
+    height: 25px;
+    font-size: 18px;
+    border: 1px solid gainsboro;
+
+}
+
+table{
+    margin-left: 80px;
+    margin-top: 30px;
+}
+td{
+    width:300px ;
+    height: 25px;
+    display: inline-block;
+    margin-top: 10px;
+}
+.button{
+    margin-top: 20px;
+    text-align: right;
+    height: 30px;
+}
+.login,.sign{
+    width: 100px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+.login:hover,.sign:hover{
+    cursor: pointer;
+}
+.login{
+    background: #3e8fc6;
+
+}
+.sign{
+    background: #dadada;
+    margin-left: 10px;
+}

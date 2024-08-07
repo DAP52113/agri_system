@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxt.Auser.mapper.FriendMapper" >
+  <resultMap id="BaseResultMap" type="com.sxt.Auser.domain.Friend" >
+    <id column="friendId" property="friendid" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="friendUserId" property="frienduserid" jdbcType="INTEGER" />
+    <result column="friendAuthorized" property="friendauthorized" jdbcType="VARCHAR" />
+  </resultMap>
+
+ 
+
+   <sql id="Base_Column_List_User" >
+    userId, username, userphoto, userintroduce
+  </sql>
+  
+  
+  
+  <sql id="Base_Column_List" >
+    friendId, userId, friendUserId, friendAuthorized
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from friend
+    where friendId = #{friendid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from friend
+    where friendId = #{friendid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sxt.Auser.domain.Friend" >
+    insert into friend (friendId, userId, friendUserId, 
+      friendAuthorized)
+    values (#{friendid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{frienduserid,jdbcType=INTEGER}, 
+      #{friendauthorized,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxt.Auser.domain.Friend" >
+    insert into friend
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="friendid != null" >
+        friendId,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="frienduserid != null" >
+        friendUserId,
+      </if>
+      <if test="friendauthorized != null" >
+        friendAuthorized,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="friendid != null" >
+        #{friendid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="frienduserid != null" >
+        #{frienduserid,jdbcType=INTEGER},
+      </if>
+      <if test="friendauthorized != null" >
+        #{friendauthorized,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxt.Auser.domain.Friend" >
+    update friend
+    <set >
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="frienduserid != null" >
+        friendUserId = #{frienduserid,jdbcType=INTEGER},
+      </if>
+      <if test="friendauthorized != null" >
+        friendAuthorized = #{friendauthorized,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where friendId = #{friendid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxt.Auser.domain.Friend" >
+    update friend
+    set userId = #{userid,jdbcType=INTEGER},
+      friendUserId = #{frienduserid,jdbcType=INTEGER},
+      friendAuthorized = #{friendauthorized,jdbcType=VARCHAR}
+    where friendId = #{friendid,jdbcType=INTEGER}
+  </update>
+  <!-- queryFriendList -->
+   <select id="queryFriendList" resultType="com.sxt.Auser.domain.Userchat">
+  	select 
+  	<include refid="Base_Column_List_User" />
+  	from userchat  where userId in (select friendUserId  from friend where userId=#{userId})
+  </select>
+  
+  <!-- getFriendList  BaseResultUserchatMap -->
+   <select id="getFriendList"  resultType="com.sxt.Auser.domain.Userchat">
+ 	select * from userchat where userId in(select friendUserId from friend where userId=#{userId})
+ </select>
+  
+</mapper>

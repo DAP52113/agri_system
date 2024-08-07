@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxt.Auser.mapper.LikeMapper" >
+  <resultMap id="BaseResultMap" type="com.sxt.Auser.domain.Like" >
+    <id column="likeid" property="likeid" jdbcType="INTEGER" />
+    <result column="informationid" property="informationid" jdbcType="INTEGER" />
+    <result column="unname" property="unname" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    likeid, informationid, unname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from like
+    where likeid = #{likeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from like
+    where likeid = #{likeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sxt.Auser.domain.Like" >
+    insert into like (likeid, informationid, unname
+      )
+    values (#{likeid,jdbcType=INTEGER}, #{informationid,jdbcType=INTEGER}, #{unname,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxt.Auser.domain.Like" >
+    insert into `like` 
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="likeid != null" >
+        likeid,
+      </if>
+      <if test="informationid != null" >
+        informationid,
+      </if>
+      <if test="unname != null" >
+        unname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="likeid != null" >
+        #{likeid,jdbcType=INTEGER},
+      </if>
+      <if test="informationid != null" >
+        #{informationid,jdbcType=INTEGER},
+      </if>
+      <if test="unname != null" >
+        #{unname,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxt.Auser.domain.Like" >
+    update `like`
+    <set >
+      <if test="informationid != null" >
+        informationid = #{informationid,jdbcType=INTEGER},
+      </if>
+      <if test="unname != null" >
+        unname = #{unname,jdbcType=CHAR},
+      </if>
+    </set>
+    where likeid = #{likeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxt.Auser.domain.Like" >
+    update `like`
+    set informationid = #{informationid,jdbcType=INTEGER},
+      unname = #{unname,jdbcType=CHAR}
+    where likeid = #{likeid,jdbcType=INTEGER}
+  </update>
+  
+  <!-- queryInformationByinforId -->
+   <select id="queryInformationByinforId"  parameterType="java.lang.Integer"  resultType="java.lang.Integer">
+    select likeid  FROM `like` WHERE informationid = #{informationid,jdbcType=INTEGER}
+  </select>
+  
+  <!-- queryCountNum-->
+   <select id="queryCountNum"    resultType="java.lang.Integer">
+    SELECT COUNT(DISTINCT likeid) FROM `like` WHERE unname =#{unname,jdbcType=CHAR}
+  </select>
+  
+  
+</mapper>

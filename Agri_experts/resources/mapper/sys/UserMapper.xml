@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxt.sys.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.sxt.sys.domain.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="unname" property="unname" jdbcType="CHAR" />
+    <result column="upsw" property="upsw" jdbcType="CHAR" />
+    <result column="introduce" property="introduce" jdbcType="VARCHAR" />
+    <result column="uphoto" property="uphoto" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, unname, upsw, introduce, uphoto
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sxt.sys.domain.User" >
+    insert into user (id, unname, upsw, introduce, 
+      uphoto)
+    values (#{id,jdbcType=INTEGER}, #{unname,jdbcType=CHAR}, #{upsw,jdbcType=CHAR}, #{introduce,jdbcType=VARCHAR}, 
+      #{uphoto,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxt.sys.domain.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="unname != null" >
+        unname,
+      </if>
+      <if test="upsw != null" >
+        upsw,
+      </if>
+      <if test="introduce != null" >
+        introduce,
+      </if>
+      <if test="uphoto != null" >
+        uphoto,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="unname != null" >
+        #{unname,jdbcType=CHAR},
+      </if>
+      <if test="upsw != null" >
+        #{upsw,jdbcType=CHAR},
+      </if>
+      <if test="introduce != null" >
+        #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="uphoto != null" >
+        #{uphoto,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxt.sys.domain.User" >
+    update user
+    <set >
+      <if test="unname != null" >
+        unname = #{unname,jdbcType=CHAR},
+      </if>
+      <if test="upsw != null" >
+        upsw = #{upsw,jdbcType=CHAR},
+      </if>
+      <if test="introduce != null" >
+        introduce = #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="uphoto != null" >
+        uphoto = #{uphoto,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxt.sys.domain.User" >
+    update user
+    set unname = #{unname,jdbcType=CHAR},
+      upsw = #{upsw,jdbcType=CHAR},
+      introduce = #{introduce,jdbcType=VARCHAR},
+      uphoto = #{uphoto,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 用户登录 -->
+  <select id="loginUser" resultMap="BaseResultMap">
+  		select
+  		<include refid="Base_Column_List" />
+  		from user
+  		where unname = #{unname} and upsw = #{upsw}
+  </select>
+  
+  <!-- 查询用户信息 -->
+    <select id="queryAllUser" resultMap="BaseResultMap">
+  		select
+  		<include refid="Base_Column_List" />
+  		from user
+  		<where>
+  				<if test="unname != null and unname != '' ">
+  					and unname like concat("%",#{unname},"%")
+  				</if>
+  				<if test="introduce != null and introduce != '' ">
+  					and introduce like concat("%",#{introduce},"%")
+  				</if>
+  		</where>
+  </select>
+  
+  <!-- 根据用户名去查询数据库信息 -->
+  <select id="queryAllUserByUnname" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from user
+  where unname=#{unname}
+  </select>
+  
+ 
+  <!-- 查询用户列表信息 -->
+  <select id="queryAllFriendsExme"   resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from user
+  where unname != #{unname}
+  </select>
+  
+
+    <!-- 查询用户账号 -->
+  <select id="queryUserByUnname"   resultMap="BaseResultMap">
+  select
+  unname
+  from user
+  where unname= #{unname}
+  </select>
+  
+ 
+      <!-- 查询用户账号 -->
+  <select id="queryUserByUsernameCheck"   resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from user
+  where unname= #{unname}
+  </select>
+  
+  <!-- findAndroidLogin -->
+    <!-- 用户安卓登录 -->
+  <select id="findAndroidLogin" resultMap="BaseResultMap">
+  		select
+  		<include refid="Base_Column_List" />
+  		from user
+  		where unname = #{unname} and upsw = #{upsw}
+  </select>
+  
+  <!-- checkusername 安卓检测用户名存在性-->
+    <select id="checkusername" resultMap="BaseResultMap">
+  		select
+  		<include refid="Base_Column_List" />
+  		from user
+  		where unname = #{unname} 
+  </select>
+  
+  <!-- queryUserByUnnameCount -->
+  <select id="queryUserByUnnameCount" resultType="java.lang.Integer">
+  		select
+  		count(id)
+  		from user
+  		where unname = #{unname} 
+  </select>
+  
+  
+</mapper>

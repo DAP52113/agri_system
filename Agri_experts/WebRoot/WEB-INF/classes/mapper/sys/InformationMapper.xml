@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxt.sys.mapper.InformationMapper" >
+  <resultMap id="BaseResultMap" type="com.sxt.sys.domain.Information" >
+  <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="eno" property="eno" jdbcType="CHAR" />
+    <result column="province" property="province" jdbcType="CHAR" />
+    <result column="city" property="city" jdbcType="CHAR" />
+    <result column="district" property="district" jdbcType="CHAR" />
+    <result column="area" property="area" jdbcType="CHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="disable" property="disable" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="wentiphoto" property="wentiphoto" jdbcType="VARCHAR" />
+    <result column="role_id" property="roleId" jdbcType="INTEGER" />
+    <result column="date" property="date" jdbcType="VARCHAR" />
+    <result column="like_num" property="likeNum" jdbcType="INTEGER" />
+    <result column="collect_num" property="collectNum" jdbcType="INTEGER" />
+  </resultMap>
+   <sql id="Base_Column_List" >
+    id, eno, province, city, district, area, content, disable, title, wentiphoto, role_id, 
+    date, like_num, collect_num
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from information
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from information
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sxt.sys.domain.Information" >
+    insert into information (id, eno, province, 
+      city, district, area, content, 
+      disable, title, wentiphoto, 
+      role_id, date, like_num, 
+      collect_num)
+    values (#{id,jdbcType=INTEGER}, #{eno,jdbcType=CHAR}, #{province,jdbcType=CHAR}, 
+      #{city,jdbcType=CHAR}, #{district,jdbcType=CHAR}, #{area,jdbcType=CHAR}, #{content,jdbcType=VARCHAR}, 
+      #{disable,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{wentiphoto,jdbcType=VARCHAR}, 
+      #{roleId,jdbcType=INTEGER}, #{date,jdbcType=VARCHAR}, #{likeNum,jdbcType=INTEGER}, 
+      #{collectNum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxt.sys.domain.Information" >
+    insert into information
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="eno != null" >
+        eno,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="district != null" >
+        district,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="disable != null" >
+        disable,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="wentiphoto != null" >
+        wentiphoto,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="likeNum != null" >
+        like_num,
+      </if>
+      <if test="collectNum != null" >
+        collect_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="eno != null" >
+        #{eno,jdbcType=CHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=CHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=CHAR},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=CHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=CHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="disable != null" >
+        #{disable,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="wentiphoto != null" >
+        #{wentiphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=VARCHAR},
+      </if>
+       <if test="likeNum != null" >
+        #{likeNum,jdbcType=INTEGER},
+      </if>
+      <if test="collectNum != null" >
+        #{collectNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxt.sys.domain.Information" >
+    update information
+    <set >
+      <if test="eno != null" >
+        eno = #{eno,jdbcType=CHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=CHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=CHAR},
+      </if>
+      <if test="district != null" >
+        district = #{district,jdbcType=CHAR},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=CHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="disable != null" >
+        disable = #{disable,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="wentiphoto != null" >
+        wentiphoto = #{wentiphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="likeNum != null" >
+        like_num = #{likeNum,jdbcType=INTEGER},
+      </if>
+      <if test="collectNum != null" >
+        collect_num = #{collectNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxt.sys.domain.Information" >
+    update information
+    set eno = #{eno,jdbcType=CHAR},
+      province = #{province,jdbcType=CHAR},
+      city = #{city,jdbcType=CHAR},
+      district = #{district,jdbcType=CHAR},
+      area = #{area,jdbcType=CHAR},
+      content = #{content,jdbcType=VARCHAR},
+      disable = #{disable,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      wentiphoto = #{wentiphoto,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=INTEGER},
+      date = #{date,jdbcType=VARCHAR},
+      like_num = #{likeNum,jdbcType=INTEGER},
+      collect_num = #{collectNum,jdbcType=INTEGER}  
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <!-- 查询咨询信息 -->
+    <select id="queryAllInformations" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Information
+  <where>
+    	<if test="eno != null  and eno != ''  ">
+    	and eno like concat("%",#{eno},"%")
+    	</if>
+    	
+    	<if test="province != null  and province != ''  ">
+    	and province like concat("%",#{province},"%")
+    	</if>
+    	
+    	<if test="city != null  and city != ''  ">
+    	and city like concat("%",#{city},"%")
+    	</if>
+    	
+    	<if test="district != null  and district != ''  ">
+    	and district like concat("%",#{district},"%")
+    	</if>
+    	
+    	<if test="area != null  and area != ''  ">
+    	and area like concat("%",#{area},"%")
+    	</if>
+    	
+    	<if test="title != null  and title != ''  ">
+    	and title like concat("%",#{title},"%")
+    	</if>
+    	
+    	<if test="startTime != null ">
+    	and date >= #{startTime}
+    	</if>
+    
+    	<if test="endTime != null ">
+    	<!-- 为防止使用小于号被xml文件解析成div标签 -->
+    	and date   <![CDATA[<=]]>  #{endTime}
+    	</if>
+    </where>
+    order by date DESC
+  </select>
+  
+  <select id="queryAllInformationsByUser" resultMap="BaseResultMap">
+ 		select
+ 		<include refid="Base_Column_List" /> 
+ 		from information 
+ 		where `disable`=1 
+ 		limit 2,6
+  </select>
+  
+  <select id="queryAllInformationsById" resultMap="BaseResultMap">
+     select 
+    <include refid="Base_Column_List" />
+    from Information
+		where id =#{id}
+  </select>
+  
+    <select id="queryAllInformationByUserNolimit" resultMap="BaseResultMap">
+     select 
+    <include refid="Base_Column_List" />
+    from Information
+	where `disable`=1 
+	limit 2,6
+  </select>
+  
+  <!--  标题查询 -->
+  <select id="queryAllInformationByTitle" resultMap="BaseResultMap">
+    select 
+    title
+    from Information
+   where title like concat("%",#{title},"%")
+   
+   order by date DESC
+  </select>
+
+<!-- 标题查询所有数据 -->
+
+  <select id="selectAllInformationByTitle" resultType="com.sxt.sys.domain.Information">
+    select 
+    <include refid="Base_Column_List" />
+    from Information
+   	where title like concat("%",#{title},"%")
+  </select>
+<!-- 查询数据库分页查询 -->
+<select id="selectAllinformationWithLimit" resultType="com.sxt.sys.domain.Information">
+		select 
+		<include refid="Base_Column_List" />
+   		 from Information
+		ORDER BY id 
+		LIMIT  #{start},#{pagesize}
+</select>
+<!-- 查询未审核信息 -->
+<select id="queryAllInformationByDisable"  resultMap="BaseResultMap">
+	 select 
+    <include refid="Base_Column_List" />
+    from Information
+	where `disable`=0
+</select>
+<!-- queryInfoByTitle -->
+  <select id="queryInfoByTitle" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Information
+   where title like concat("%",#{title},"%")
+   order by date DESC
+  </select>
+<!-- queryInfoGettitleAndarea -->
+  <select id="queryInfoGettitleAndarea" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Information
+  </select>
+  <update id="updateCollectNum" parameterType="com.sxt.sys.domain.Information" >
+    update information
+    set  collect_num = #{collectNum,jdbcType=INTEGER}  
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+<!-- updateLikeNum -->
+ <update id="updateLikeNum" parameterType="com.sxt.sys.domain.Information" >
+    update information
+    set   like_num = #{likeNum,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+</mapper>

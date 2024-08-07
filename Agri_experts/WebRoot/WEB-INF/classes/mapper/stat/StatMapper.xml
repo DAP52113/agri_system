@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxt.stat.mapper.StatMapper" >
+ 
+ 
+ <!-- 查询地区 -->
+
+		<select id="queryExpertAddressStatList"  resultType="com.sxt.stat.domain.BaseEntity">
+				SELECT province as name,count(1) as value from expert GROUP BY  province
+		</select>
+  
+  		<select id="queryInformationAreaStatList"  resultType="com.sxt.stat.domain.BaseEntity">
+				SELECT area as name,count(1) as value from information GROUP BY  area
+		</select>
+</mapper>

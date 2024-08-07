@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxt.Auser.mapper.ReplyMapper" >
+  <resultMap id="BaseResultMap" type="com.sxt.Auser.domain.Reply" >
+    <id column="rno" property="rno" jdbcType="INTEGER" />
+    <result column="expert" property="expert" jdbcType="CHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="date" property="date" jdbcType="TIMESTAMP" />
+    <result column="replyuser" property="replyuser" jdbcType="VARCHAR" />
+    <result column="forconsultid" property="forconsultid" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <resultMap id="UpdateResultMap" type="com.sxt.Auser.vo.ReplyVo" >
+    <id column="rno" property="rno" jdbcType="INTEGER" />
+    <result column="expert" property="expert" jdbcType="CHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="date" property="date" jdbcType="TIMESTAMP" />
+    <result column="replyuser" property="replyuser" jdbcType="VARCHAR" />
+    <result column="forconsultid" property="forconsultid" jdbcType="INTEGER" />
+ <!-- 一对一属性 -->
+    <association property="consult" column="forconsultid" javaType="com.sxt.Auser.domain.Consult">
+            <!--property为当前类的属性，column为主表数据库的列名,主键用id标签-->
+            <id column="cno" property="cno" jdbcType="INTEGER" />
+    		<result column="counselor" property="counselor" jdbcType="CHAR" />
+   			 <result column="province" property="province" jdbcType="CHAR" />
+   			 <result column="city" property="city" jdbcType="CHAR" />
+    		<result column="district" property="district" jdbcType="CHAR" />
+    		<result column="area" property="area" jdbcType="CHAR" />
+   		 	<result column="title" property="title" jdbcType="CHAR" />
+   		 	<result column="consult_content" property="content" jdbcType="CHAR" />
+    		<result column="photo" property="photo" jdbcType="CHAR" />
+   	 		<result column="date" property="date" jdbcType="TIMESTAMP" />
+    		<result column="question_id" property="questionId" jdbcType="INTEGER" />
+      </association> 
+  </resultMap>
+  
+  
+  <sql id="Base_Column_List" >
+    rno, expert, content, date, replyuser, forconsultid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from reply
+    where rno = #{rno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from reply
+    where rno = #{rno,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sxt.Auser.domain.Reply" >
+    insert into reply (rno, expert, content, 
+      date, replyuser, forconsultid
+      )
+    values (#{rno,jdbcType=INTEGER}, #{expert,jdbcType=CHAR}, #{content,jdbcType=VARCHAR}, 
+      #{date,jdbcType=TIMESTAMP}, #{replyuser,jdbcType=VARCHAR}, #{forconsultid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxt.Auser.domain.Reply" >
+    insert into reply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rno != null" >
+        rno,
+      </if>
+      <if test="expert != null" >
+        expert,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="replyuser != null" >
+        replyuser,
+      </if>
+      <if test="forconsultid != null" >
+        forconsultid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rno != null" >
+        #{rno,jdbcType=INTEGER},
+      </if>
+      <if test="expert != null" >
+        #{expert,jdbcType=CHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyuser != null" >
+        #{replyuser,jdbcType=VARCHAR},
+      </if>
+      <if test="forconsultid != null" >
+        #{forconsultid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxt.Auser.domain.Reply" >
+    update reply
+    <set >
+      <if test="expert != null" >
+        expert = #{expert,jdbcType=CHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyuser != null" >
+        replyuser = #{replyuser,jdbcType=VARCHAR},
+      </if>
+      <if test="forconsultid != null" >
+        forconsultid = #{forconsultid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where rno = #{rno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxt.Auser.domain.Reply" >
+    update reply
+    set expert = #{expert,jdbcType=CHAR},
+      content = #{content,jdbcType=VARCHAR},
+      date = #{date,jdbcType=TIMESTAMP},
+      replyuser = #{replyuser,jdbcType=VARCHAR},
+      forconsultid = #{forconsultid,jdbcType=INTEGER}
+    where rno = #{rno,jdbcType=INTEGER}
+  </update>
+  <!-- 查询信息 -->
+    <select id="queryAllReplies" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from reply
+  </select>
+  
+  
+  <!-- queryCountReplyNum  -->
+  <select id="queryCountReplyNum"    resultType="java.lang.Integer">
+  SELECT COUNT(*) FROM reply WHERE replyuser=#{replyuser,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <!-- queryInfoByReplyUser -->
+      <select id="queryInfoByReplyUser" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from reply
+    where replyuser=#{replyuser,jdbcType=VARCHAR}
+  </select>
+  
+  <!-- queryExpertReplyMoreDetail -->
+    <select id="queryExpertReplyMoreDetail"  resultMap="UpdateResultMap">
+  SELECT
+  consult.cno,consult.province,consult.content "consult_content",
+consult.city,consult.district,consult.area,consult.photo,consult.title
+   from consult,reply 
+  where consult.cno = reply.forconsultid 
+  and reply.forconsultid=#{forconsultid,jdbcType=INTEGER}
+   and reply.expert=#{expert,jdbcType=CHAR}
+  and reply.replyuser=#{replyuser,jdbcType=VARCHAR}
+  </select>
+  
+  <!-- queryReplyContent -->
+      <select id="queryReplyContent" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from reply
+   where forconsultid=#{forconsultid,jdbcType=INTEGER}
+  </select>
+  
+  <!-- queryAboutAddInfo -->
+    <select id="queryAboutAddInfo" resultType="java.lang.Integer">
+     select COUNT(*) from reply
+      where expert=#{expert,jdbcType=CHAR} 
+and forconsultid=#{forconsultid,jdbcType=INTEGER}
+and replyuser=#{replyuser,jdbcType=VARCHAR}
+and content = #{content,jdbcType=VARCHAR}
+  </select>
+
+  
+</mapper>

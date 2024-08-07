@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxt.sys.mapper.ExpertMapper" >
+  <resultMap id="BaseResultMap" type="com.sxt.sys.domain.Expert" >
+    <id column="eid" property="eid" jdbcType="INTEGER" />
+    <result column="eno" property="eno" jdbcType="CHAR" />
+    <result column="ename" property="ename" jdbcType="CHAR" />
+    <result column="epsw" property="epsw" jdbcType="CHAR" />
+    <result column="esex" property="esex" jdbcType="CHAR" />
+    <result column="eprof" property="eprof" jdbcType="CHAR" />
+    <result column="province" property="province" jdbcType="CHAR" />
+    <result column="city" property="city" jdbcType="CHAR" />
+    <result column="district" property="district" jdbcType="CHAR" />
+    <result column="area" property="area" jdbcType="CHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="role_id" property="roleId" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    eid, eno, ename, epsw, esex, eprof, province, city, district, area, photo, role_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from expert
+    where eid = #{eid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from expert
+    where eid = #{eid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sxt.sys.domain.Expert" >
+    insert into expert (eid, eno, ename, epsw, 
+      esex, eprof, province, city, 
+      district, area, photo, role_id
+      )
+    values (#{eid,jdbcType=INTEGER}, #{eno,jdbcType=CHAR}, #{ename,jdbcType=CHAR}, #{epsw,jdbcType=CHAR}, 
+      #{esex,jdbcType=CHAR}, #{eprof,jdbcType=CHAR}, #{province,jdbcType=CHAR}, #{city,jdbcType=CHAR}, 
+      #{district,jdbcType=CHAR}, #{area,jdbcType=CHAR}, #{photo,jdbcType=VARCHAR}, #{roleId,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxt.sys.domain.Expert" >
+    insert into expert
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="eid != null" >
+        eid,
+      </if>
+      <if test="eno != null" >
+        eno,
+      </if>
+      <if test="ename != null" >
+        ename,
+      </if>
+      <if test="epsw != null" >
+        epsw,
+      </if>
+      <if test="esex != null" >
+        esex,
+      </if>
+      <if test="eprof != null" >
+        eprof,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="district != null" >
+        district,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="photo != null" >
+        photo,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="eid != null" >
+        #{eid,jdbcType=INTEGER},
+      </if>
+      <if test="eno != null" >
+        #{eno,jdbcType=CHAR},
+      </if>
+      <if test="ename != null" >
+        #{ename,jdbcType=CHAR},
+      </if>
+      <if test="epsw != null" >
+        #{epsw,jdbcType=CHAR},
+      </if>
+      <if test="esex != null" >
+        #{esex,jdbcType=CHAR},
+      </if>
+      <if test="eprof != null" >
+        #{eprof,jdbcType=CHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=CHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=CHAR},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=CHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=CHAR},
+      </if>
+      <if test="photo != null" >
+        #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxt.sys.domain.Expert" >
+    update expert
+    <set >
+      <if test="eno != null" >
+        eno = #{eno,jdbcType=CHAR},
+      </if>
+      <if test="ename != null" >
+        ename = #{ename,jdbcType=CHAR},
+      </if>
+      <if test="epsw != null" >
+        epsw = #{epsw,jdbcType=CHAR},
+      </if>
+      <if test="esex != null" >
+        esex = #{esex,jdbcType=CHAR},
+      </if>
+      <if test="eprof != null" >
+        eprof = #{eprof,jdbcType=CHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=CHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=CHAR},
+      </if>
+      <if test="district != null" >
+        district = #{district,jdbcType=CHAR},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=CHAR},
+      </if>
+      <if test="photo != null" >
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=CHAR},
+      </if>
+    </set>
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxt.sys.domain.Expert" >
+    update expert
+    set eno = #{eno,jdbcType=CHAR},
+      ename = #{ename,jdbcType=CHAR},
+      epsw = #{epsw,jdbcType=CHAR},
+      esex = #{esex,jdbcType=CHAR},
+      eprof = #{eprof,jdbcType=CHAR},
+      province = #{province,jdbcType=CHAR},
+      city = #{city,jdbcType=CHAR},
+      district = #{district,jdbcType=CHAR},
+      area = #{area,jdbcType=CHAR},
+      photo = #{photo,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=CHAR}
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 登录方法编写 -->
+  <select id="loginExpert" resultMap="BaseResultMap">
+  		select
+  		<include refid="Base_Column_List" />
+  		from expert
+  		where eno = #{eno} and epsw = #{epsw}
+ 
+  </select>
+  <!-- 通过搜索按钮来查询所有专家用户信息 -->
+  <select id="queryAllExpert"  resultMap="BaseResultMap">
+  			select 
+  			<include refid="Base_Column_List" />
+  			from expert
+  			<where>
+  					<if test="eno != null  and eno !=''  ">
+  					and eno like concat("%",#{eno},"%")
+  					</if>
+  					<if test="ename != null  and ename !=''  ">
+  					and ename like concat("%",#{ename},"%")
+  					</if>
+  					<if test="esex != null  and esex !=''  ">
+  					and esex like concat("%",#{esex},"%")
+  					</if>
+  					<if test="eprof != null  and eprof !=''  ">
+  					and eprof like concat("%",#{eprof},"%")
+  					</if>
+  					<if test="province != null  and province !=''  ">
+  					and province like concat("%",#{province},"%")
+  					</if>
+  					<if test="city != null  and city !=''  ">
+  					and city like concat("%",#{city},"%")
+  					</if>
+  					<if test="district != null  and district !=''  ">
+  					and district like concat("%",#{district},"%")
+  					</if>
+  					<if test="area != null  and area !=''  ">
+  					and area like concat("%",#{area},"%")
+  					</if>
+  					
+  			</where>
+  </select>
+  <!-- 用户查询专家信息 -->
+  <select id="queryAllExpertByUser" resultMap="BaseResultMap">
+  			select 
+  			<include refid="Base_Column_List" />
+  			from expert limit 1,3
+  </select>
+  <!-- 查询原密码和专家领域 -->
+  <select id="queryExpertByEno" resultMap="BaseResultMap">
+  select 
+  <include refid="Base_Column_List" />
+  from expert 
+  where eno=#{eno}
+  </select>
+<!-- queryAllExpertsByArea -->
+  <select id="queryAllExpertsByArea" resultMap="BaseResultMap">
+  select 
+  <include refid="Base_Column_List" />
+   from expert 
+   where area=#{area}
+  </select>
+  
+  <!-- queryExpertInfoByRoleAddUnname -->
+ <select id="queryExpertInfoByRoleAddUnname" resultType="java.lang.Integer">
+  select 
+  count(eno)
+   from expert 
+   where eno=#{eno}
+  </select>
+  
+</mapper>

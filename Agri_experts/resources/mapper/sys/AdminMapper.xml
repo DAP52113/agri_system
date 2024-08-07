@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxt.sys.mapper.AdminMapper" >
+  <resultMap id="BaseResultMap" type="com.sxt.sys.domain.Admin" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="adminname" property="adminname" jdbcType="CHAR" />
+    <result column="adminpsw" property="adminpsw" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, adminname, adminpsw
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from admin
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from admin
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sxt.sys.domain.Admin" >
+    insert into admin (id, adminname, adminpsw
+      )
+    values (#{id,jdbcType=INTEGER}, #{adminname,jdbcType=CHAR}, #{adminpsw,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxt.sys.domain.Admin" >
+    insert into admin
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="adminname != null" >
+        adminname,
+      </if>
+      <if test="adminpsw != null" >
+        adminpsw,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="adminname != null" >
+        #{adminname,jdbcType=CHAR},
+      </if>
+      <if test="adminpsw != null" >
+        #{adminpsw,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxt.sys.domain.Admin" >
+    update admin
+    <set >
+      <if test="adminname != null" >
+        adminname = #{adminname,jdbcType=CHAR},
+      </if>
+      <if test="adminpsw != null" >
+        adminpsw = #{adminpsw,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxt.sys.domain.Admin" >
+    update admin
+    set adminname = #{adminname,jdbcType=CHAR},
+      adminpsw = #{adminpsw,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 用户登录 -->
+  <select id="login" resultMap="BaseResultMap">
+  			select
+  			<include refid="Base_Column_List" />
+  			from admin
+  			where adminname = #{adminname} and adminpsw = #{adminpsw}
+  
+  </select>
+  <!-- 根据密码查询 -->
+    <select id="selectByPwd" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from admin
+    where adminpsw = #{adminpsw}
+  </select>
+  
+    <!-- 根据账号查询 -->
+    <select id="selectAllByAdminName" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from admin
+    where adminname = #{adminname}
+  </select>
+
+  
+</mapper>

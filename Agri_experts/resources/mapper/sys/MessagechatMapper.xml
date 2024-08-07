@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxt.Auser.mapper.MessagechatMapper" >
+  <resultMap id="BaseResultMap" type="com.sxt.Auser.domain.Messagechat" >
+    <id column="messageId" property="messageid" jdbcType="INTEGER" />
+    <result column="messageSender" property="messagesender" jdbcType="INTEGER" />
+    <result column="messageReciver" property="messagereciver" jdbcType="INTEGER" />
+    <result column="messageDate" property="messagedate" jdbcType="VARCHAR" />
+    <result column="messageInfo" property="messageinfo" jdbcType="VARCHAR" />
+    <result column="messageType" property="messagetype" jdbcType="VARCHAR" />
+    <result column="messageRead" property="messageread" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    messageId, messageSender, messageReciver, messageDate, messageInfo, messageType, 
+    messageRead
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from messagechat
+    where messageId = #{messageid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from messagechat
+    where messageId = #{messageid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sxt.Auser.domain.Messagechat" >
+    insert into messagechat (messageId, messageSender, messageReciver, 
+      messageDate, messageInfo, messageType, 
+      messageRead)
+    values (#{messageid,jdbcType=INTEGER}, #{messagesender,jdbcType=INTEGER}, #{messagereciver,jdbcType=INTEGER}, 
+      #{messagedate,jdbcType=VARCHAR}, #{messageinfo,jdbcType=VARCHAR}, #{messagetype,jdbcType=VARCHAR}, 
+      #{messageread,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxt.Auser.domain.Messagechat" >
+    insert into messagechat
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="messageid != null" >
+        messageId,
+      </if>
+      <if test="messagesender != null" >
+        messageSender,
+      </if>
+      <if test="messagereciver != null" >
+        messageReciver,
+      </if>
+      <if test="messagedate != null" >
+        messageDate,
+      </if>
+      <if test="messageinfo != null" >
+        messageInfo,
+      </if>
+      <if test="messagetype != null" >
+        messageType,
+      </if>
+      <if test="messageread != null" >
+        messageRead,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="messageid != null" >
+        #{messageid,jdbcType=INTEGER},
+      </if>
+      <if test="messagesender != null" >
+        #{messagesender,jdbcType=INTEGER},
+      </if>
+      <if test="messagereciver != null" >
+        #{messagereciver,jdbcType=INTEGER},
+      </if>
+      <if test="messagedate != null" >
+        #{messagedate,jdbcType=VARCHAR},
+      </if>
+      <if test="messageinfo != null" >
+        #{messageinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="messagetype != null" >
+        #{messagetype,jdbcType=VARCHAR},
+      </if>
+      <if test="messageread != null" >
+        #{messageread,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxt.Auser.domain.Messagechat" >
+    update messagechat
+    <set >
+      <if test="messagesender != null" >
+        messageSender = #{messagesender,jdbcType=INTEGER},
+      </if>
+      <if test="messagereciver != null" >
+        messageReciver = #{messagereciver,jdbcType=INTEGER},
+      </if>
+      <if test="messagedate != null" >
+        messageDate = #{messagedate,jdbcType=VARCHAR},
+      </if>
+      <if test="messageinfo != null" >
+        messageInfo = #{messageinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="messagetype != null" >
+        messageType = #{messagetype,jdbcType=VARCHAR},
+      </if>
+      <if test="messageread != null" >
+        messageRead = #{messageread,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where messageId = #{messageid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxt.Auser.domain.Messagechat" >
+    update messagechat
+    set messageSender = #{messagesender,jdbcType=INTEGER},
+      messageReciver = #{messagereciver,jdbcType=INTEGER},
+      messageDate = #{messagedate,jdbcType=VARCHAR},
+      messageInfo = #{messageinfo,jdbcType=VARCHAR},
+      messageType = #{messagetype,jdbcType=VARCHAR},
+      messageRead = #{messageread,jdbcType=VARCHAR}
+    where messageId = #{messageid,jdbcType=INTEGER}
+  </update>
+  
+  <!-- getMessage -->
+     <select id="getMessage" resultType="string">
+   select messageInfo from messagechat 
+   where (messageSender=#{messagesender} and messageReciver=#{messagereciver}) or (messageSender=#{messagereciver} and messageReciver=#{messagesender}) order by messageDate desc limit 0,1
+ </select>
+  <!-- getMessageNotReadCount -->
+   <select id="getMessageNotReadCount" resultType="integer">
+  select count(messageId) count from messagechat 
+	where messageReciver=#{messagereciver} and messageSender=#{messagesender} and messageRead=0
+ </select>
+  
+  <!-- updateMessages -->
+	<update id="updateMessages" parameterType="com.sxt.Auser.domain.Messagechat" >
+ 	update messagechat set messageRead=1 where messageRead=0 and messageSender=#{messagesender} and messageReciver=#{messagereciver}
+ </update>
+<!-- saveMessage -->
+	 <insert id="saveMessage" parameterType="com.sxt.Auser.domain.Messagechat">
+ 	insert into messagechat(messageSender,messageReciver,messageDate,messageInfo,messageType,messageRead)
+ 	 values(#{messagesender},#{messagereciver},#{messagedate},#{messageinfo},#{messagetype},#{messageread})
+ </insert>
+  
+  <!-- getMessages -->
+   <select id="getMessages" resultMap="BaseResultMap">
+ 	select * from messagechat where (messageSender=#{messagesender} and messageReciver=#{messagereciver}) or (messageSender=#{messagereciver} and messageReciver=#{messagesender}) order by messageDate asc
+ </select>
+  
+</mapper>

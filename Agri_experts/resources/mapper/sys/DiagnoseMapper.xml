@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxt.Auser.mapper.DiagnoseMapper" >
+  <resultMap id="BaseResultMap" type="com.sxt.Auser.domain.Diagnose" >
+    <id column="dno" property="dno" jdbcType="INTEGER" />
+    <result column="counselor" property="counselor" jdbcType="CHAR" />
+    <result column="indate" property="indate" jdbcType="TIMESTAMP" />
+    <result column="title" property="title" jdbcType="CHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    dno, counselor, indate, title, content, photo
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from diagnose
+    where dno = #{dno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from diagnose
+    where dno = #{dno,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sxt.Auser.domain.Diagnose" >
+    insert into diagnose (dno, counselor, indate, 
+      title, content, photo)
+    values (#{dno,jdbcType=INTEGER}, #{counselor,jdbcType=CHAR}, #{indate,jdbcType=TIMESTAMP}, 
+      #{title,jdbcType=CHAR}, #{content,jdbcType=VARCHAR}, #{photo,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxt.Auser.domain.Diagnose" >
+    insert into diagnose
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dno != null" >
+        dno,
+      </if>
+      <if test="counselor != null" >
+        counselor,
+      </if>
+      <if test="indate != null" >
+        indate,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="photo != null" >
+        photo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dno != null" >
+        #{dno,jdbcType=INTEGER},
+      </if>
+      <if test="counselor != null" >
+        #{counselor,jdbcType=CHAR},
+      </if>
+      <if test="indate != null" >
+        #{indate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=CHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        #{photo,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxt.Auser.domain.Diagnose" >
+    update diagnose
+    <set >
+      <if test="counselor != null" >
+        counselor = #{counselor,jdbcType=CHAR},
+      </if>
+      <if test="indate != null" >
+        indate = #{indate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=CHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        photo = #{photo,jdbcType=CHAR},
+      </if>
+    </set>
+    where dno = #{dno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxt.Auser.domain.Diagnose" >
+    update diagnose
+    set counselor = #{counselor,jdbcType=CHAR},
+      indate = #{indate,jdbcType=TIMESTAMP},
+      title = #{title,jdbcType=CHAR},
+      content = #{content,jdbcType=VARCHAR},
+      photo = #{photo,jdbcType=CHAR}
+    where dno = #{dno,jdbcType=INTEGER}
+  </update>
+  <!-- 查询 -->
+  <select id="queryAllDiagnose"  resultMap="BaseResultMap">
+  select 
+  <include refid="Base_Column_List" />
+  from diagnose
+  </select>
+  
+</mapper>
