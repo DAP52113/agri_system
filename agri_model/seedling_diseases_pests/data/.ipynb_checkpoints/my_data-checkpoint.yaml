@@ -1,0 +1,14 @@
+# Custom data for safety helmet
+
+
+# train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
+train: ./dataset_cell/images/train
+test: ./dataset_cell/images/test
+val: ./dataset_cell/images/val
+
+# number of classes
+nc: 4
+
+# class names
+names: ['Fg', 'Baifen','dog','W']
+

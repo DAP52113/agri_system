@@ -1,0 +1,49 @@
+# MobileNet改进轻量化
+# Parameters
+nc: 4 # number of classes
+depth_multiple: 0.33  # model depth multiple
+width_multiple: 0.50  # layer channel multiple
+anchors:
+  - [10,13, 16,30, 33,23]  # P3/8
+  - [30,61, 62,45, 59,119]  # P4/16
+  - [116,90, 156,198, 373,326]  # P5/32
+
+# MobileNet改进1
+backbone:
+  # [from, number, module, args]
+  [[-1, 1, conv_bn_hswish, [16, 2]],             # 0-p1/2   320*320
+   [-1, 1, MobileNetV3, [16,  16, 3, 2, 1, 0]],  # 1-p2/4   160*160
+   [-1, 1, MobileNetV3, [24,  72, 3, 2, 0, 0]],  # 2-p3/8   80*80
+   [-1, 1, MobileNetV3, [24,  88, 3, 1, 0, 0]],  # 3        80*80
+   [-1, 1, MobileNetV3, [40,  96, 5, 2, 1, 1]],  # 4-p4/16  40*40
+   [-1, 1, MobileNetV3, [40, 240, 5, 1, 1, 1]],  # 5        40*40
+   [-1, 1, MobileNetV3, [40, 240, 5, 1, 1, 1]],  # 6        40*40
+   [-1, 1, MobileNetV3, [48, 120, 5, 1, 1, 1]],  # 7        40*40
+   [-1, 1, MobileNetV3, [48, 144, 5, 1, 1, 1]],  # 8        40*40
+   [-1, 1, MobileNetV3, [96, 288, 5, 2, 1, 1]],  # 9-p5/32  20*20
+   [-1, 1, MobileNetV3, [96, 576, 5, 1, 1, 1]],  # 10       20*20
+   [-1, 1, MobileNetV3, [96, 576, 5, 1, 1, 1]],  # 11       20*20
+  ]
+
+# head_mobilenet
+head:
+  [[-1, 1, Conv, [96, 1, 1]],  # 12                         20*20
+   [-1, 1, nn.Upsample, [None, 2, 'nearest']], # 13         40*40
+   [[-1, 8], 1, Concat, [1]],  # cat backbone P4            40*40
+   [-1, 3, C3, [144, False]],  # 15                         40*40
+
+   [-1, 1, Conv, [144, 1, 1]], # 16                         40*40
+   [-1, 1, nn.Upsample, [None, 2, 'nearest']],# 17          80*80
+   [[-1, 3], 1, Concat, [1]],  # cat backbone P3            80*80
+   [-1, 3, C3, [168, False]],  # 19 (P3/8-small)            80*80
+
+   [-1, 1, Conv, [168, 3, 2]], # 20                         40*40
+   [[-1, 16], 1, Concat, [1]], # cat head P4                40*40
+   [-1, 3, C3, [312, False]],  # 22 (P4/16-medium)          40*40
+
+   [-1, 1, Conv, [312, 3, 2]], # 23                         20*20
+   [[-1, 12], 1, Concat, [1]], # cat head P5                20*20
+   [-1, 3, C3, [408, False]],  # 25 (P5/32-large)           20*20
+
+   [[19, 22, 25], 1, Detect, [nc, anchors]],  # Detect(P3, P4, P5)
+  ]
