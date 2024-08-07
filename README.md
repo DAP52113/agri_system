@@ -24,7 +24,7 @@ Android客户端中App页面以原生Android渲染为主，通过Activity进行�
 
 ### 4.相关功能
 
-![function](picture\function.png)
+<img src="picture\function.png" alt="function" style="zoom:50%;" />
 
 ## 5.相关时序图
 
