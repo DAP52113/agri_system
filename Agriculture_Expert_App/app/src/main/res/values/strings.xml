@@ -1,0 +1,96 @@
+<resources>
+    <string name="app_name">农业专家系统</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="register_expert">专家注册</string>
+    <string name="account_hint">请输入用户名</string>
+    <string name="pwd_hint">请输入密码</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_login">登录页面</string>
+    <string name="title_activity_register">注册页面</string>
+    <string name="title_activity_expert_reg">专家注册页面</string>
+    <string name="title_activity_home">用户端首页</string>
+    <string name="txt_nav_home">主页</string>
+    <string name="txt_nav_zixun">咨询</string>
+    <string name="txt_nav_appoint">预约</string>
+    <string name="txt_nav_user">我的</string>
+    <string name="title_activity_info_list">资讯信息界面</string>
+    <string name="title_activity_info_detail">资讯详情页面</string>
+    <string name="title_activity_question">在线咨询页面</string>
+    <string name="title_activity_question_online">在线提交</string>
+
+
+    <string-array name="province">
+        <item>陕西省</item>
+        <item>辽宁省</item>
+        <item>湖北省</item>
+    </string-array>
+
+    <string-array name="sx">
+        <item>延安市</item>
+        <item>商洛市</item>
+        <item>渭南市</item>
+    </string-array>
+    <string-array name="ln">
+        <item>沈阳市</item>
+        <item>大连市</item>
+        <item>锦州市</item>
+    </string-array>
+    <string-array name="hb">
+        <item>武汉市</item>
+        <item>宜昌市</item>
+        <item>黄冈市</item>
+    </string-array>
+
+    <string-array name="ya">
+        <item>宝塔区</item>
+        <item>吴起县</item>
+        <item>洛川县</item>
+    </string-array>
+    <string-array name="sl">
+        <item>商州区</item>
+        <item>商南县</item>
+        <item>丹凤县</item>
+    </string-array>
+    <string-array name="wn">
+        <item>临渭区</item>
+        <item>蒲城县</item>
+        <item>白水县</item>
+    </string-array>
+    <string-array name="sy">
+        <item>和平区</item>
+        <item>苏家屯区</item>
+        <item>康平县</item>
+    </string-array>
+    <string-array name="dl">
+        <item>中山区</item>
+        <item>旅顺口区</item>
+        <item>长海县</item>
+    </string-array>
+    <string-array name="jz">
+        <item>古塔区</item>
+        <item>太和区</item>
+        <item>义县</item>
+    </string-array>
+    <string-array name="wh">
+        <item>江岸区</item>
+        <item>武昌区</item>
+        <item>汉阳区</item>
+    </string-array>
+    <string-array name="yc">
+        <item>西陵区</item>
+        <item>点军区</item>
+        <item>兴山县</item>
+    </string-array>
+    <string-array name="hg">
+        <item>黄州区</item>
+        <item>团风县</item>
+        <item>红安县</item>
+    </string-array>
+
+
+
+</resources>

@@ -1,0 +1,91 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".QuestionActivity" >
+
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cdcdcd" />
+   <TextView 
+      
+       android:layout_width="match_parent"
+       android:layout_height="40dp"
+       android:background="#00FFFF"
+       android:gravity="center"
+       android:text="专家在线咨询"
+       android:textColor="#FFFFFF"
+       android:textSize="16sp"/>
+   
+
+    <LinearLayout 
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#fbfbfb"
+		android:orientation="horizontal">
+		
+        <LinearLayout 
+            android:id="@+id/ll_left"
+            android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:orientation="vertical"
+		    android:layout_weight="3"
+		    android:divider="@color/divider"
+		    android:showDividers="middle|end"
+            android:dividerHeight="1dp"></LinearLayout>
+        <View 
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#DCDCDC" />
+        
+        <ScrollView 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffffff">
+            
+         <LinearLayout 
+            android:id="@+id/ll_right"
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		   
+		    android:divider="@color/divider"
+		    android:showDividers="middle|end"
+            android:dividerHeight="1dp">
+             
+         </LinearLayout>
+            
+        </ScrollView>
+        
+        
+	</LinearLayout>
+   
+   
+
+   <!--  <LinearLayout 
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#fbfbfb"
+		android:orientation="horizontal">
+       <ListView 
+           android:id="@+id/info_expert_area"
+           android:layout_width="0dp"
+           android:layout_height="match_parent"
+           android:scrollbars="none"
+           android:layout_weight="1"
+           android:background="#f4f4f4">
+       </ListView>
+       <FrameLayout 
+           android:id="@+id/frament_content"
+          
+           android:layout_width="0dp"
+           android:layout_height="match_parent"
+           android:layout_weight="3">
+      </FrameLayout>
+   </LinearLayout> -->
+    
+
+</LinearLayout>

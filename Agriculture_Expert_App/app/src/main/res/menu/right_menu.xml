@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    	<item android:id="@+id/appoint_record" android:title="预约记录"/>
+        <item android:id="@+id/online_consult" android:title="在线咨询"/>
+        <item android:id="@+id/consult_reply" android:title="咨询回复"/>
+</menu>

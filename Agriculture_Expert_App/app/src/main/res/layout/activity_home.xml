@@ -1,0 +1,130 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDDDDD"
+    android:stretchColumns="1" 
+    android:orientation="vertical"
+    tools:context=".HomeActivity" >
+   <LinearLayout
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:orientation="vertical" >
+<RelativeLayout
+    android:id="@+id/home_index"
+	android:onClick="onClick"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:layout_marginTop="20dp"
+           
+    android:background="#FFFFFF"
+	
+    android:gravity="center_vertical" >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:padding="10dp"
+    android:layout_centerVertical="true"
+    android:drawableLeft="@mipmap/share"
+    android:text="首页"
+    android:textColor="#000"
+    android:textSize="17sp" />
+<ImageView
+    
+        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/expand" />
+
+</RelativeLayout> 
+
+<RelativeLayout
+    android:id="@+id/home_askquestion"
+	android:onClick="onClick"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:layout_marginTop="20dp"
+      
+      
+    android:background="#FFFFFF"	     
+    android:gravity="center_vertical" >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:padding="10dp"
+    android:drawableLeft="@mipmap/nearby"
+    android:text="用户在线咨询"
+    android:textColor="#000"
+    
+    android:layout_centerVertical="true"
+    android:textSize="17sp" />
+<ImageView
+    
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/expand" />
+</RelativeLayout>
+
+
+<RelativeLayout
+    android:id="@+id/home_appoint"
+    android:onClick="onClick"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:layout_marginTop="20dp"
+     
+    android:background="#FFFFFF"	     
+    android:gravity="center_vertical" >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:padding="8dp"
+     android:layout_centerVertical="true"
+    android:drawableLeft="@mipmap/shoppping"
+    android:text="专家在线预约"
+    android:textColor="#000"
+    android:textSize="17sp" />
+<ImageView
+    
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/expand" />
+</RelativeLayout>
+
+<RelativeLayout
+    android:id="@+id/home_myinfo"
+    android:onClick="onClick"
+     android:layout_marginTop="20dp"
+     android:layout_width="fill_parent"
+     android:layout_height="50dp"
+    
+     android:background="#FFFFFF"
+   
+     android:gravity="center_vertical" >
+<TextView
+     android:layout_width="wrap_content"
+     android:layout_height="40dp"
+     android:padding="10dp"
+     android:text="个人中心"
+     android:layout_centerVertical="true"
+     android:drawableLeft="@mipmap/mine"
+     android:textColor="#000"
+     android:textSize="17sp" />
+<ImageView
+    
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/expand" />
+</RelativeLayout>
+
+</LinearLayout>
+
+</LinearLayout>

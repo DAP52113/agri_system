@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:padding="10dp"> 
+    <ImageView 
+        android:id="@+id/item_info_id"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:src="@mipmap/beanmilk"
+        android:scaleType="fitXY"/>
+    <TextView 
+        android:id="@+id/item_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/item_info_id"
+        android:layout_marginTop="1dp"
+        android:text="牛奶"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView 
+        android:id="@+id/item_info_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/item_info_title"
+        android:layout_alignBottom="@id/item_info_id"
+     	android:text="植保"/>
+     <TextView 
+        android:id="@+id/item_info_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="70dp"
+        android:layout_alignLeft="@id/item_info_area"
+        android:layout_alignBottom="@id/item_info_id"
+     	android:text="时间"/>
+    <ImageView
+        android:id="@+id/item_info_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/expand" />
+
+</RelativeLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <ImageView
+        android:id="@+id/item_submit_img"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:src="@mipmap/beanmilk"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:id="@+id/item_submit_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="1dp"
+        android:layout_toRightOf="@id/item_submit_img"
+        android:text="标题"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/item_submit_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/item_submit_title"
+        android:layout_alignBottom="@id/item_submit_img"
+        android:text="领域area" />
+
+    <TextView
+        android:id="@+id/item_info_date"
+        android:layout_width="132dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/item_submit_area"
+        android:layout_alignBottom="@id/item_submit_img"
+        android:layout_marginLeft="77dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="right"
+        android:text="时间" />
+
+    <TextView
+        android:id="@+id/item_info_province"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/item_submit_title"
+        android:layout_marginLeft="109dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="right"
+        android:paddingLeft="10dp"
+        android:text="省份" />
+
+    <TextView
+        android:id="@+id/item_info_city"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/item_submit_title"
+        android:layout_marginLeft="167dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="right"
+        android:paddingLeft="10dp"
+        android:text="市区" />
+
+    <ImageView
+        android:id="@+id/item_info_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/expand" />
+
+
+
+</RelativeLayout>

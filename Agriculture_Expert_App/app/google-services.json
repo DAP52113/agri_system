@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "745664746489",
+    "project_id": "agriculture-expert-app",
+    "storage_bucket": "agriculture-expert-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745664746489:android:8d8365f8a72a1fd75fe328",
+        "android_client_info": {
+          "package_name": "com.example.agriculture_expert_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745664746489-3snpdd1pt57klsqcc77tdoas7ilnpi08.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtKus4Mw67P9qswRwxyc-CnQp85UlpwLg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745664746489-3snpdd1pt57klsqcc77tdoas7ilnpi08.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

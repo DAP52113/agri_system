@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <!-- android:src="@drawable/zhuanjiaphoto" -->
+        <ImageView 
+            android:id="@+id/quetion_expert_photo"
+            android:layout_width="23dp"
+            android:layout_height="23dp" 
+            android:src="@mipmap/zhuanjiaphoto"/>
+        
+        <TextView 
+            android:id="@+id/question_expert_eno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="专家用户名"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp" />
+        
+        
+        
+          <TextView 
+            android:id="@+id/expert_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="专家姓名"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_gravity="right"
+            android:layout_marginLeft="40dp" />
+
+           <TextView
+               android:id="@+id/expert_prof"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="30dp"
+               android:text="专家职称"
+               android:textSize="14sp"
+               android:textStyle="bold" />
+
+    </LinearLayout>
+
+    
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        
+        <Button 
+            android:id="@+id/btn_photoandword_quesion"
+            android:background="#FF00FF"
+            android:layout_width="80dp"
+            android:layout_height="28dp"
+            android:text="图文咨询"
+            android:textSize="11sp"
+            android:layout_gravity="right"/>
+        
+        <Button 
+            android:id="@+id/btn_phone_quesion"
+            android:background="#FF00FF"
+            android:layout_width="80dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="28dp"
+            android:text="电话咨询"
+            android:textSize="11sp"
+            android:layout_gravity="right"/>
+        
+        
+    </LinearLayout>
+  
+
+</LinearLayout>

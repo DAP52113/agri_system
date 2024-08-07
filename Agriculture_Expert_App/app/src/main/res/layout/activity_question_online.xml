@@ -1,0 +1,178 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuestionOnlineActivity" >
+
+    <TextView
+        android:id="@+id/reg_number1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_content"
+        android:padding="10dp"
+        android:text="标题:"
+        android:textColor="#000"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/question_title"
+        android:hint="请输入咨询标题"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/reg_number1"
+        android:layout_toRightOf="@+id/reg_number1"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/reg_number2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reg_number1"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:text="内容:"
+        android:textColor="#000"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/question_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/reg_number2"
+        android:layout_toRightOf="@+id/reg_number2"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:padding="10dp" />
+
+
+    <TextView
+        android:id="@+id/selectPD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reg_number2"
+        android:text="请选择当前地区"
+        android:layout_marginTop="20dp"/>
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selectPD"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/qustion_province"
+            android:layout_width="130dp"
+            android:layout_height="70dp" />
+
+        <Spinner
+            android:id="@+id/question_city"
+            android:layout_width="130dp"
+            android:layout_height="70dp" />
+
+        <Spinner
+            android:id="@+id/question_dirct"
+            android:layout_width="130dp"
+            android:layout_height="70dp" />
+
+
+    </LinearLayout>
+
+
+
+
+<!--    <TextView
+        android:id="@+id/reg_number3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reg_number2"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:text="省份:"
+        android:textColor="#000"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/qustion_province"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/reg_number3"
+        android:layout_toRightOf="@+id/reg_number3"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/reg_number4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reg_number3"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:text="城市:"
+        android:textColor="#000"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/question_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/reg_number4"
+        android:layout_toRightOf="@+id/reg_number4"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/reg_number5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reg_number4"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:text="地区:"
+        android:textColor="#000"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/question_dirct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/reg_number5"
+        android:layout_toRightOf="@+id/reg_number5"
+        android:padding="10dp" />-->
+
+    <TextView
+        android:id="@+id/content_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="在线咨询问题"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/image_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/content_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+
+     	android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/question" />
+
+    <Button
+        android:id="@+id/btn_expert_question_subbmit"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="39dp"
+        android:background="@drawable/shape_big_register_btn"
+        android:text="提交问题"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+</RelativeLayout>

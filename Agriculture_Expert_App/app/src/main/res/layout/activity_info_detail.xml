@@ -1,0 +1,156 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".InfoDetailActivity" >
+
+    <LinearLayout
+        android:id="@+id/infodetail_layout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:background="@mipmap/search_background"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <ImageView
+                android:id="@+id/info_back"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/btn_back"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/info_detail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="茶学"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/info_detail_photo"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:src="@mipmap/beanmilk"
+            android:layout_margin="20dp"
+            android:scaleType="fitXY"/>
+        <TextView
+            android:id="@+id/info_detail_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="茶学"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+          <TextView
+            android:id="@+id/info_detail_expert"
+            android:paddingTop="10dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发布者"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimary"
+
+            android:textStyle="bold"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/info_detail_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="内容"
+            android:layout_margin="20dp"
+            android:textSize="16sp"/>
+
+
+        <TextView
+            android:id="@+id/info_detail_provenice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:rotationX="-6"
+            android:text="省份"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/info_detail_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/info_detail_provenice"
+             android:layout_marginTop="10dp"
+            android:text="城市"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/info_detail_district"
+            android:layout_toRightOf="@id/info_detail_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_marginTop="10dp"
+            android:text="地区"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/info_detail_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_marginTop="10dp"
+            android:text="领域"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+       <TextView
+            android:id="@+id/info_detail_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_marginTop="10dp"
+            android:text="日期"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+      	 	<ImageView
+                    android:id="@+id/img_collect"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/collect" />
+
+                <TextView
+                    android:id="@+id/collect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="0"
+                    android:textColor="#161616"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/img_like"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                     android:layout_marginTop="10dp"
+                    android:src="@mipmap/dianzan" />
+
+                <TextView
+                    android:id="@+id/dz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="0"
+                    android:textColor="#161616"
+                    android:textSize="14sp" />
+
+    </LinearLayout>
+
+
+</ScrollView>
