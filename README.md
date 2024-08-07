@@ -16,38 +16,38 @@ Android客户端中App页面以原生Android渲染为主，通过Activity进行�
 
 
 
-<img src="D:\github\agri_system\picture\model_structure.png" alt="model_structure" style="zoom:50%;" />
+<img src="picture\model_structure.png" alt="model_structure" style="zoom:50%;" />
 
-<img src="D:\github\agri_system\picture\yolo.png" alt="yolo" style="zoom: 50%;" />
+<img src="picture\yolo.png" alt="yolo" style="zoom: 50%;" />
 
-<img src="D:\github\agri_system\picture\detect.png" alt="detect" style="zoom:50%;" />
+<img src="picture\detect.png" alt="detect" style="zoom:50%;" />
 
 ### 4.相关功能
 
-![function](D:\github\agri_system\picture\function.png)
+![function](picture\function.png)
 
 ## 5.相关时序图
 
-<img src="D:\github\agri_system\picture\图片3.png" alt="图片3" style="zoom:50%;" />
+<img src="picture\图片3.png" alt="图片3" style="zoom:50%;" />
 
-<img src="D:\github\agri_system\picture\图片1.png" alt="图片1" style="zoom:50%;" />
+<img src="picture\图片1.png" alt="图片1" style="zoom:50%;" />
 
-<img src="D:\github\agri_system\picture\图片2.png" alt="图片2" style="zoom:50%;" />
+<img src="picture\图片2.png" alt="图片2" style="zoom:50%;" />
 
 ## 6.效果图
 
 #### Android端
 
-| <img src="D:\github\agri_system\picture\图片4.png" alt="图片4" style="zoom: 33%;" /> | <img src="D:\github\agri_system\picture\图片5.png" alt="图片5" style="zoom: 33%;" /> |
+| <img src="picture\图片4.png" alt="图片4" style="zoom: 33%;" /> | <img src="picture\图片5.png" alt="图片5" style="zoom: 33%;" /> |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="D:\github\agri_system\picture\图片7.png" alt="图片7" style="zoom:33%;" /> | <img src="D:\github\agri_system\picture\图片9.png" alt="图片9" style="zoom:33%;" /> |
-| <img src="D:\github\agri_system\picture\图片13.png" alt="图片13" style="zoom:33%;" /> | <img src="D:\github\agri_system\picture\图片6.png" alt="图片6" style="zoom:33%;" /> |
+| <img src="picture\图片7.png" alt="图片7" style="zoom:33%;" /> | <img src="picture\图片9.png" alt="图片9" style="zoom:33%;" /> |
+| <img src="picture\图片13.png" alt="图片13" style="zoom:33%;" /> | <img src="picture\图片6.png" alt="图片6" style="zoom:33%;" /> |
 
 #### 服务端
 
-| <img src="D:\github\agri_system\picture\图片8.png" alt="图片8" style="zoom:33%;" /> | <img src="D:\github\agri_system\picture\图片10.png" alt="图片10" style="zoom:33%;" /> |
+| <img src="picture\图片8.png" alt="图片8" style="zoom:33%;" /> | <img src="picture\图片10.png" alt="图片10" style="zoom:33%;" /> |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="D:\github\agri_system\picture\图片11.png" alt="图片11" style="zoom:33%;" /> | <img src="D:\github\agri_system\picture\图片12.png" alt="图片12" style="zoom:33%;" /> |
-| <img src="D:\github\agri_system\picture\图片15.png" alt="图片15" style="zoom:33%;" /> | <img src="D:\github\agri_system\picture\图片16.png" alt="图片16" style="zoom:33%;" /> |
-| <img src="D:\github\agri_system\picture\图片17.png" alt="图片17" style="zoom:33%;" /> | <img src="D:\github\agri_system\picture\图片14.png" alt="图片14" style="zoom:33%;" /> |
+| <img src="picture\图片11.png" alt="图片11" style="zoom:33%;" /> | <img src="picture\图片12.png" alt="图片12" style="zoom:33%;" /> |
+| <img src="picture\图片15.png" alt="图片15" style="zoom:33%;" /> | <img src="picture\图片16.png" alt="图片16" style="zoom:33%;" /> |
+| <img src="picture\图片17.png" alt="图片17" style="zoom:33%;" /> | <img src="picture\图片14.png" alt="图片14" style="zoom:33%;" /> |
 
