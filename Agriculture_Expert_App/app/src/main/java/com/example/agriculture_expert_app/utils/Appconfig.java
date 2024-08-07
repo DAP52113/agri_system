@@ -7,7 +7,7 @@ import android.graphics.Bitmap;
 public class Appconfig {
 
 	//URL访问连接
-	public static final String BASE_URL="http://192.168.98.50:8080/Agri_experts";
+	public static final String BASE_URL="http://XXX.XXX.XXX.XXX:8080/Agri_experts";
 	public static final String REQUEST_URL_REGISTER="/androidaction/androidregister.action";
 	public static final String IMAGEADDPATH="/resources/images/";
 
